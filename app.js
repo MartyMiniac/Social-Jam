@@ -6,8 +6,13 @@ app.use(express.json())
 
 app.use('/static', express.static('static'))
 
-app.get('/', (req, res) => {
-    res.send('Hello world')
+//Views router
+app.use('/', require('./router/view'))
+
+
+//404 page handler
+app.all('*', (req, res) => {
+    res.sendFile(__dirname+'\\view\\404.html')
 })
 
 module.exports = http
