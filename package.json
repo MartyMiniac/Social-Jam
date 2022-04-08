@@ -1,0 +1,36 @@
+{
+  "name": "social-jam",
+  "version": "1.0.0",
+  "description": "Today a lot of streaming services are prevalent on the internet of which a lot many offers huge catalog of music to hear but there are occasions when we might want hear songs not alone but with a group friends. This is what this project aims to day. This projects aims to build a social media centered towards a song streaming solution.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartyMiniac/Social-Jam.git"
+  },
+  "keywords": [
+    "jiosaavn",
+    "jiosaavnapi",
+    "social",
+    "streaming",
+    "music",
+    "song"
+  ],
+  "author": "Rohan Verma <rohanvermaara@gmail.com> (https://github.com/MartyMiniac)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MartyMiniac/Social-Jam/issues"
+  },
+  "homepage": "https://github.com/MartyMiniac/Social-Jam#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
