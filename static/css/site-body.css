@@ -1,0 +1,86 @@
+.site-body {
+    position: absolute;
+    top: 0em;
+    bottom: 5em;
+    width: 100%;
+    background-color: #313439;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPane {
+    width: 25%;
+    height: 100%;
+}
+.roomInfoPane {
+    background-image: linear-gradient(to bottom right, #23272A, #121415);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #353b3f;
+}
+.roomInfoPaneContainer {
+    width: 80%;
+    height: 40%;
+}
+.roomInfoPaneContainer p {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0;
+}
+.roomLobyPane {
+    background-image: linear-gradient(to bottom right, #23272A, #121415);
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+}
+.roomLobyPane h2 {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0.25em;
+}
+.roomLobyEntity {
+    background-color: black;
+    color: white;
+    font-family: 'PT Sans';
+    width: 80%;
+    height: 4em;
+    
+    margin: 1em 0.25em;
+    padding: 10px;
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+}
+.roomLobyEntityInfo p {
+    margin: 0.5em;
+}
+.midPane {
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    
+}
+.rightPane {
+    width: 25%;
+    height: 100%;
+    background-color: green;
+    
+}
+
+@media (max-aspect-ratio: 3/4) {
+    .leftPane {
+        width: 0%;
+        visibility: collapse;
+    }
+    .midPane {
+        width: 100%;
+    }
+    .rightPane {
+        width: 0%;
+        visibility: collapse;
+    }
+}
