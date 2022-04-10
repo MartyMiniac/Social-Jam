@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const http = require('http').Server(app)
+require('./router/socketio')(http)
 
 app.use(express.json())
 
