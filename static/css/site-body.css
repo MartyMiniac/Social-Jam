@@ -1,0 +1,174 @@
+.site-body {
+    position: absolute;
+    top: 0em;
+    bottom: 5em;
+    width: 100%;
+    background-color: #313439;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftPane {
+    width: 25%;
+    height: 100%;
+}
+.roomInfoPane {
+    background-image: linear-gradient(to bottom right, #23272A, #121415);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #353b3f;
+}
+.roomInfoPaneContainer {
+    width: 80%;
+    height: 40%;
+}
+.roomInfoPaneContainer p {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0;
+}
+.roomLobyPane {
+    background-image: linear-gradient(to bottom right, #23272A, #121415);
+    width: 100%;
+    height: 80%;
+    overflow: auto;
+}
+.roomLobyPane h2 {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0.25em;
+}
+.roomLobyEntity {
+    background-color: black;
+    color: white;
+    font-family: 'PT Sans';
+    width: 80%;
+    height: 4em;
+    
+    margin: 1em 0.25em;
+    padding: 10px;
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+}
+.roomLobyEntityInfo p {
+    margin: 0.5em;
+}
+
+.midPane {
+    width: 50%;
+    height: 100%;
+    background-image: url('/static/img/bgPat.jpg');
+    background-repeat: repeat;
+}
+.songSearchBar {
+    width: 100%;
+    height: 5%;    
+    background-color: #23272A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.songSearchBar input {
+    width: 80%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    /* border-radius: 25px; */
+}
+.songSearchBar button {
+    width: 20%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    border: none;
+}
+.chatArea {
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+}
+.chatBubble {
+    background-color: #202224eb;
+    padding: 1em;
+    margin: 1em;
+    margin-right: 0em;
+    border-radius: 25px;
+    width: 45%;
+    
+    color: white;
+    font-family: 'PT Sans';
+}
+.bubbleRight {
+    margin-left: 50%;
+}
+.chatTextPane {
+    width: 100%;
+    height: 5%;    
+    background-color: #23272A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.chatTextPane input {
+    width: 85%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    /* border-radius: 25px; */
+}
+.chatTextPane button {
+    width: 15%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    border: none;
+}
+
+.rightPane {
+    width: 25%;
+    height: 100%;
+    overflow: auto;
+}
+.rightPane h2 {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0.25em;
+}
+.PlaylistEntity {    
+    background-color: black;
+    color: white;
+    font-family: 'PT Sans';
+    width: 80%;
+    height: 4em;
+    
+    margin: 0.5em 0.25em;
+    padding: 10px;
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+}
+.PlaylistEntityInfo p {
+    margin: 0em 0.5em;
+}
+
+@media (max-aspect-ratio: 3/4) {
+    .leftPane {
+        width: 0%;
+        visibility: collapse;
+    }
+    .midPane {
+        width: 100%;
+    }
+    .rightPane {
+        width: 0%;
+        visibility: collapse;
+    }
+}

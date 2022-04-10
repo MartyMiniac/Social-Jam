@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT Sans">
+    <link rel="stylesheet" href="/static/css/player.css">
+    <link rel="stylesheet" href="/static/css/site-body.css">
+    
+    <title>Document</title>
+</head>
+<style>
+    html {
+        padding: 0px;
+        margin: 0px;
+        border: none;
+    }
+    body {
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+    .body-container {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div class="body-container">
+        <div class="site-body">
+            <div class="leftPane">
+                <div class="roomInfoPane">
+                    <div class="roomInfoPaneContainer">
+                        <p id="roomName">The Room Name</p>
+                        <p id="roomID">The Room Joining ID</p>
+                    </div>
+                </div>
+                <div class="roomLobyPane">
+                    <h2>People In the Lobby:</h2>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                    <div class="roomLobyEntity">
+                        <img src="/static/dp.jpg" alt="">
+                        <div class="roomLobyEntityInfo">
+                            <p>Name</p>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="midPane">
+                <div class="songSearchBar">
+                    <input type="text" placeholder="Search Song">
+                    <button>Search</button>
+                </div>
+                <div class="chatArea">
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble bubbleRight">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                    <div class="chatBubble">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
+                    </div>
+                </div>
+                <div class="chatTextPane">                    
+                    <input type="text" placeholder="Enter Your Message">
+                    <button>Send</button>
+                </div>
+            </div>
+            <div class="rightPane">
+                <h2>Playlist :</h2>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+                <div class="PlaylistEntity">
+                    <img src="/static/dp.jpg" alt="">
+                    <div class="PlaylistEntityInfo">
+                        <p>Name</p>
+                        <p>Album</p>
+                        <p>Artist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="player">
+            <input type="range" min="1" max="1000" value="1" class="seek-slider" id="range">
+            <div  class="player-controls">
+                <div class="player-mediaInfo">
+                    <div class="player-mediaInfoBox">
+                        <img src="/static/dp.jpg">
+                        <div class="player-mediaInfoText">
+                            <p>Name of The Song</p>
+                            <p>Album Name</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-mainControls">
+                    <div class="player-playcontrols">
+                        <img src="/static/icons/backward.svg" id="player-back-btn">
+                        <img src="/static/icons/play.svg" id="player-playpause-btn">
+                        <img src="/static/icons/forward.svg" id="player-next-btn">
+                    </div>
+                </div>
+                <div class="player-otherControls"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
