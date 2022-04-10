@@ -58,17 +58,105 @@
 .roomLobyEntityInfo p {
     margin: 0.5em;
 }
+
 .midPane {
     width: 50%;
     height: 100%;
-    background-color: blue;
-    
+    background-image: url('/static/img/bgPat.jpg');
+    background-repeat: repeat;
 }
+.songSearchBar {
+    width: 100%;
+    height: 5%;    
+    background-color: #23272A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.songSearchBar input {
+    width: 80%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    /* border-radius: 25px; */
+}
+.songSearchBar button {
+    width: 20%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    border: none;
+}
+.chatArea {
+    width: 100%;
+    height: 90%;
+    overflow: auto;
+}
+.chatBubble {
+    background-color: #202224eb;
+    padding: 1em;
+    margin: 1em;
+    margin-right: 0em;
+    border-radius: 25px;
+    width: 45%;
+    
+    color: white;
+    font-family: 'PT Sans';
+}
+.bubbleRight {
+    margin-left: 50%;
+}
+.chatTextPane {
+    width: 100%;
+    height: 5%;    
+    background-color: #23272A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.chatTextPane input {
+    width: 85%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    /* border-radius: 25px; */
+}
+.chatTextPane button {
+    width: 15%;
+    height: 100%;
+    background-color: #151718;
+    color: white;
+    border: none;
+}
+
 .rightPane {
     width: 25%;
     height: 100%;
-    background-color: green;
+    overflow: auto;
+}
+.rightPane h2 {
+    color: white;
+    font-family: 'PT Sans';
+    margin: 0.25em;
+}
+.PlaylistEntity {    
+    background-color: black;
+    color: white;
+    font-family: 'PT Sans';
+    width: 80%;
+    height: 4em;
     
+    margin: 0.5em 0.25em;
+    padding: 10px;
+    position: relative;
+    
+    display: flex;
+    flex-direction: row;
+}
+.PlaylistEntityInfo p {
+    margin: 0em 0.5em;
 }
 
 @media (max-aspect-ratio: 3/4) {
