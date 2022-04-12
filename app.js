@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
 const http = require('http').Server(app)
+require('./router/socketio')(http)
 
 app.use(express.json())
 
 app.use('/static', express.static('static'))
+
+app.use('/api/proxy', require('./router/api/proxy'))
 
 //Views router
 app.use('/', require('./router/view'))
