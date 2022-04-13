@@ -99,7 +99,8 @@
     margin: 1em;
     margin-right: 0em;
     border-radius: 25px;
-    width: 45%;
+    max-width: 45%;
+    /* width: fit-content; */
     
     color: white;
     font-family: 'PT Sans';

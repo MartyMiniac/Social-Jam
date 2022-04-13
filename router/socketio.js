@@ -10,8 +10,21 @@ const socketioFunction = (http) => {
 
         console.log('A user Connected')
         
-        socket.on('roomJoiningRequest', data => {
+        socket.on('joinRoom', data => {
             console.log(data)
+            socket.join(data.roomID)
+            socket.to(data.roomID).emit('msg', {
+                type: 'roomInfo',
+                data: 'Somebody Hoped in the room'
+            })
+        })
+
+        socket.on('msg', data => {
+            console.log(data)
+            socket.to(data.roomID).emit('msg', {
+                type: data.type,
+                data: data.data
+            })
         })
         
         socket.on('disconnect', () => {

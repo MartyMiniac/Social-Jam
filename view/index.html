@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT Sans">
     <link rel="stylesheet" href="/static/css/player.css">
     <link rel="stylesheet" href="/static/css/site-body.css">
-    
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <script src="/static/js/chat.js"></script>
     <title>Document</title>
 </head>
 <style>
@@ -91,31 +92,10 @@
                     <button>Search</button>
                 </div>
                 <div class="chatArea">
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble bubbleRight">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
-                    <div class="chatBubble">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, natus in repellat possimus nemo asperiores nihil, accusantium perspiciatis aperiam qui praesentium quis sed facere culpa maxime non suscipit inventore consequatur?
-                    </div>
                 </div>
                 <div class="chatTextPane">                    
-                    <input type="text" placeholder="Enter Your Message">
-                    <button>Send</button>
+                    <input type="text" placeholder="Enter Your Message" id="sndMsgText">
+                    <button id="sndMsgBtn">Send</button>
                 </div>
             </div>
             <div class="rightPane">
@@ -234,4 +214,5 @@
         </div>
     </div>
 </body>
+<script src="/static/js/chatUI.js"></script>
 </html>
