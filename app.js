@@ -8,6 +8,7 @@ app.use(express.json())
 app.use('/static', express.static('static'))
 
 app.use('/api/proxy', require('./router/api/proxy'))
+app.use('/api/room', require('./router/api/room'))
 
 //Views router
 app.use('/', require('./router/view'))

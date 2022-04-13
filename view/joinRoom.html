@@ -135,11 +135,8 @@
             <h1>The Social Jam</h1>
             <div class="formBox">
                 <h3 id="nameLabel" for="nameInput">Name : </h3>
-                <input type="text" id="nameInput" placeholder="Enter your name"> 
-                <h3 id="roomIDLabel" for="roomIDInput">Room ID : </h3>
-                <input type="text" id="roomIDInput" placeholder="Enter Room ID"><br>
+                <input type="text" id="nameInput" placeholder="Enter your name">
                 <div class="buttonBox">
-                    <button id="roomCreateBtn">Create Room</button><br>
                     <button id="roomJoinBtn">Join Room</button>
                 </div>
             </div>
@@ -148,26 +145,11 @@
     </div>
 </body>
 <script>
-    $('#roomCreateBtn').click(() => {
-        if(validateForm(2)) {
-            sessionStorage.setItem('playerName', $('#nameInput').val())
-            fetch('/api/room/generateRoomID').then(data => {
-                data.text().then(data => {
-                    sessionStorage.setItem('roomID', data)
-                })
-            })
-            .then(() => {
-                window.location.href='/room'
-            })
-        }
-        else {
-            showToast('Enter Your Name')
-        }
-    })
     $('#roomJoinBtn').click(() => {
-        if(validateForm(1)) {
+        if(validateForm()) {
             sessionStorage.setItem('playerName', $('#nameInput').val())
-            sessionStorage.setItem('roomID', $('#roomIDInput').val())
+            const arr = window.location.href.split('/')
+            sessionStorage.setItem('roomID', arr[arr.length-1])
             window.location.href='/room'
         }
         else {
@@ -175,16 +157,7 @@
         }
     })
     const validateForm = (n) => {
-        switch(n) {
-            case 1:
-                return $('#nameInput').val()!=='' && $('#roomIDInput').val()!==''
-                break
-            case 2:
-                return $('#nameInput').val()!==''
-                break
-            default:
-                return false
-        }
+        return $('#nameInput').val()!==''
     }
     let toastTimer = null
     const showToast = (msg) => {
