@@ -9,6 +9,7 @@ app.use('/static', express.static('static'))
 
 app.use('/api/proxy', require('./router/api/proxy'))
 app.use('/api/room', require('./router/api/room'))
+app.use('/api/song', require('./router/api/song'))
 
 //Views router
 app.use('/', require('./router/view'))

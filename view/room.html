@@ -54,8 +54,10 @@
             </div>
             <div class="midPane">
                 <div class="songSearchBar">
-                    <input type="text" placeholder="Search Song">
-                    <button>Search</button>
+                    <input type="text" list="songList" id="songSearchInput" placeholder="Search Song">
+                    <datalist id="songList">
+                    </datalist>
+                    <!-- <button>Search</button> -->
                 </div>
                 <div class="chatArea">
                 </div>
@@ -66,94 +68,6 @@
             </div>
             <div class="rightPane">
                 <h2>Playlist :</h2>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
-                <div class="PlaylistEntity">
-                    <img src="/static/dp.jpg" alt="">
-                    <div class="PlaylistEntityInfo">
-                        <p>Name</p>
-                        <p>Album</p>
-                        <p>Artist</p>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="player">
@@ -161,10 +75,10 @@
             <div  class="player-controls">
                 <div class="player-mediaInfo">
                     <div class="player-mediaInfoBox">
-                        <img src="/static/dp.jpg">
+                        <img id="player-songCover" src="/static/dp.jpg">
                         <div class="player-mediaInfoText">
-                            <p>Name of The Song</p>
-                            <p>Album Name</p>
+                            <p id="player-songName">Name of The Song</p>
+                            <p id="player-albumName">Album Name</p>
                         </div>
                     </div>
                 </div>
@@ -179,8 +93,11 @@
             </div>
         </div>
     </div>
+    <audio hidden id="audioPlayer"></audio>
 </body>
 <script src="/static/js/session.js"></script>
 <script src="/static/js/lobbyUI.js"></script>
 <script src="/static/js/chatUI.js"></script>
+<script src="/static/js/song.js"></script>
+<script src="/static/js/player.js"></script>
 </html>

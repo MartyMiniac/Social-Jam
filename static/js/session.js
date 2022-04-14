@@ -1,6 +1,4 @@
 let lobby = {
-    users: {
-        
-    },
-
+    users: {},
+    playlist: []
 }
