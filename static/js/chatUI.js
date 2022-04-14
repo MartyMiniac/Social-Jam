@@ -4,6 +4,7 @@ $('#sndMsgBtn').click(() => {
 
 $('#sndMsgText').on("keypress", e => {
     sendTypingEvent()
+    changeStatus('userMe')
     if (e.keyCode == 13) {
         sndMsgUI()
         return false;

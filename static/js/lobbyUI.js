@@ -1,7 +1,7 @@
 const addUserUI = (name, id) => {
     $('.roomLobyPane').append(`
         <div class="roomLobyEntity" id="${id}">
-            <img src="/static/dp.jpg" alt="">
+            <!-- <img src="/static/dp.jpg" alt=""> -->
             <div class="roomLobyEntityInfo">
                 <p>${name}</p>
                 <p id="status${id}">chilling</p>
