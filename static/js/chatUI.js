@@ -3,6 +3,7 @@ $('#sndMsgBtn').click(() => {
 })
 
 $('#sndMsgText').on("keypress", e => {
+    sendTypingEvent()
     if (e.keyCode == 13) {
         sndMsgUI()
         return false;
@@ -31,4 +32,11 @@ const rcvMsgUI = (msg) => {
     </div>
     `)
     $('.chatArea').scrollTop($('.chatArea').height())
+}
+
+const changeStatus = (id) => {
+    $('#status'+id).html('typing')
+    setTimeout(() => {
+        $('#status'+id).html('chilling')
+    }, 1000)
 }
