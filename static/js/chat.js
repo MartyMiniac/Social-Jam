@@ -18,12 +18,17 @@ socket.on('msg', data => {
     if(data.type==='typing') {
         renderChangeStatus(data.id)
     }
-    if(data.type=='join') {
-        console.log(data.data)
+    if(data.type==='sync') {
+        songPlayer.setSync(data.data)
+    }
+    if(data.type==='reqsync') {
+        sendPrivateSyncSignal(data.data, data.id)
+    }
+    if(data.type==='join') {
         users.addUser(data.data, data.id)
         sendJoinAckEvent(data.id)
     }
-    if(data.type=='leave') {
+    if(data.type==='leave') {
         users.removeUser(data.id)
     }
 })
@@ -31,7 +36,6 @@ socket.on('msg', data => {
 socket.on('prvmsg', data => {
     console.log(data)
     if(data.type=='ack') {
-        console.log(data.data)
         users.addUser(data.data, data.id)
         if(isFirst) {
             isFirst=false
@@ -85,10 +89,34 @@ const requestPlayerInfo = (id) => {
 }
 
 const sendPlayerInfo = (id) => {
-    console.log('player info sent')
     socket.emit('prvmsg', {
         type: 'playerInfo',
         data: songPlayer.getPlayerInfo(),
+        id: id
+    })
+}
+
+const sendSyncSignal = (data) => {
+    console.log(data)
+    socket.emit('msg', {
+        type: 'sync',
+        data: data,
+        roomID: roomID
+    })
+}
+
+const reqSyncSignal = (data) => {
+    socket.emit('msg', {
+        type: 'reqsync',
+        data: data,
+        roomID: roomID
+    })
+}
+
+const sendPrivateSyncSignal = (data, id) => {
+    socket.emit('prvmsg', {
+        type: 'sync',
+        data: songPlayer.getSyncInfo(data),
         id: id
     })
 }
