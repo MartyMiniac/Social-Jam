@@ -1,5 +1,6 @@
 class Player {
     constructor() {
+        this.playlist = new Playlist()
         this.playing=false
         this.pos = 0
         this.player = document.getElementById('audioPlayer')
@@ -8,11 +9,13 @@ class Player {
         this.startAutoPlay()
         this.init()
     }
-    load() {        
-        this.player.src=lobby.playlist[this.pos].media_url
-        document.getElementById('player-songName').innerHTML=lobby.playlist[this.pos].song
-        document.getElementById('player-albumName').innerHTML=lobby.playlist[this.pos].primary_artists
-        document.getElementById('player-songCover').src=lobby.playlist[this.pos].image
+    //native player controls
+    load() {
+        const sng = this.playlist.getSong(this.pos)
+        this.player.src=sng.media_url
+        document.getElementById('player-songName').innerHTML=sng.song
+        document.getElementById('player-albumName').innerHTML=sng.primary_artists
+        document.getElementById('player-songCover').src=sng.image
     }
     play() {
         if(this.player.src=='') {
@@ -20,24 +23,17 @@ class Player {
         }
         this.player.play()
     }
+    getPlayingStatus() {
+        return this.playing
+    }
     pause() {
         this.player.pause()
     }
-    next() {
-        this.pos=(this.pos+1)%lobby.playlist.length
-        this.load()
-        this.play()
-    }
-    previous() {
-        this.pos=(this.pos-1)%lobby.playlist.length        
-        this.load()
-        this.play()
-    }
     setVolume() {
-
+        //todo: implement volume controls 
     }
     getVolume() {
-
+        //todo: implement volume controls 
     }
     seek(percent) {
         let time = percent*(this.player.duration/100)
@@ -47,23 +43,38 @@ class Player {
         return (this.player.currentTime/this.player.duration)*100
     }
     seekTime(time) {
-        this.player.currentTime = Math.floor(time)
+        this.player.currentTime = time
     }
     getCurrentSeekTime() {
         return this.player.currentTime
     }
+
+    // implemented player controls
     getPos() {
         return this.pos
     }
     setPos(p) {
-        this.pos=p>0 && p<lobby.playlist.length?p:this.pos
+        this.pos=p>0 && p<this.playlist.getLength()?p:this.pos
         this.seek(0)
         this.load()
         this.play()
     }
+    next() {
+        this.pos=(this.pos+1)%this.playlist.getLength()
+        this.load()
+        this.play()
+    }
+    previous() {
+        this.pos=(this.pos-1)%this.playlist.getLength()    
+        this.load()
+        this.play()
+    }
+    addSong(sng) {
+        this.playlist.addSong(sng)
+    }
     startAutoPlay() {
-        this.player.onended=() => {
-            if(this.pos<lobby.playlist.length-1) {
+        this.player.onended= () => {
+            if(this.pos<this.playlist.getLength()-1) {
                 this.pos++
                 this.load()
                 this.play()
@@ -71,22 +82,21 @@ class Player {
         }
     }
     stopAutoPlay() {
-        this.player.onended=() => {}
+        this.player.onended= () => {}
     }
-    getPlayingStatus() {
-        return this.playing
-    }
+
+    //quick initialization functions
     getPlayerInfo() {
         return {
             pos: this.pos,
             seek: this.getCurrentSeekTime(),
             autoplay: this.autoPlay,
             loop: this.loop,
-            playlist: lobby.playlist
+            playlist: this.playlist.getPlaylist()
         }
     }
     setPlayerInfo(data) {
-        lobby.playlist=data.playlist
+        this.playlist.setPlaylist(data.playlist)
         this.pos=data.pos
         this.autoPlay=data.autoplay
         this.loop=data.loop
@@ -104,32 +114,29 @@ class Player {
         this.player.onpause = () => {
             document.getElementById('player-playpause-btn').src="/static/icons/play.svg"
             this.playing=false
-        }
+        }        
+        $('#player-playpause-btn').click(() => {
+            if(songPlayer.getPlayingStatus()) {
+                songPlayer.pause()
+            }
+            else {
+                songPlayer.play()
+            }
+        })
+        $('#player-back-btn').click(() => {
+            songPlayer.previous()
+        })
+        $('#player-next-btn').click(() => {
+            songPlayer.next()
+        })
     }
 }
 
-const player = new Player()
-
 setInterval(() => {
-    $('#range').val(isNaN(player.getCurrentSeek())?0:player.getCurrentSeek()*10)
+    $('#range').val(isNaN(songPlayer.getCurrentSeek())?0:songPlayer.getCurrentSeek()*10)
 }, 100)
 
-$('#player-playpause-btn').click(() => {
-    if(player.getPlayingStatus()) {
-        player.pause()
-    }
-    else {
-        player.play()
-    }
-})
-
-$('#player-back-btn').click(() => {
-    player.previous()
-})
-$('#player-next-btn').click(() => {
-    player.next()
-})
 
 $("#range").on("input change", () => {
-    player.seek($('#range').val()/10)
+    songPlayer.seek($('#range').val()/10)
 })

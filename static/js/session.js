@@ -1,7 +1,5 @@
-let lobby = {
-    users: {},
-    playlist: []
-}
+const users = new Users()
+const songPlayer = new Player()
 
 const promptUserAction = () => {
     renderUserPrompt()

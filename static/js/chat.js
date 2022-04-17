@@ -13,21 +13,18 @@ const SocketIOJoinRoom = (roomId) => {
 socket.on('msg', data => {
     console.log(data)
     if(data.type==='msg') {
-        rcvMsgUI(`${lobby.users[data.id]} said: ${data.data}`)
+        rcvMsgUI(`${users.getUser(data.id)} said: ${data.data}`)
     }
     if(data.type==='typing') {
-        // console.log(data)
         renderChangeStatus(data.id)
     }
     if(data.type=='join') {
         console.log(data.data)
-        renderAddUserUI(data.data, data.id)
+        users.addUser(data.data, data.id)
         sendJoinAckEvent(data.id)
-        lobby.users[data.id]=data.data
     }
     if(data.type=='leave') {
-        delete lobby.users[data.id]
-        $('#'+data.id).remove()
+        users.removeUser(data.id)
     }
 })
 
@@ -35,18 +32,17 @@ socket.on('prvmsg', data => {
     console.log(data)
     if(data.type=='ack') {
         console.log(data.data)
-        renderAddUserUI(data.data, data.id)
+        users.addUser(data.data, data.id)
         if(isFirst) {
             isFirst=false
             requestPlayerInfo(data.id)
         }
-        lobby.users[data.id]=data.data
     }
     if(data.type=='playerInit') {
         sendPlayerInfo(data.id)
     }
     if(data.type=='playerInfo') {
-        player.setPlayerInfo(data.data)
+        songPlayer.setPlayerInfo(data.data)
     }
 })
 
@@ -92,7 +88,7 @@ const sendPlayerInfo = (id) => {
     console.log('player info sent')
     socket.emit('prvmsg', {
         type: 'playerInfo',
-        data: player.getPlayerInfo(),
+        data: songPlayer.getPlayerInfo(),
         id: id
     })
 }

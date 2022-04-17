@@ -135,7 +135,8 @@
 .rightPane {
     width: 25%;
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .rightPane h2 {
     color: white;

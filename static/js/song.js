@@ -11,7 +11,8 @@ $('#songSearchInput').keyup(() => {
         .then(data => {
             data.json().then(data => {
                 songSearch=data
-                addSongOptions()
+                console.log(data)
+                renderSongOptions(songSearch)
             })
         })
     }, 1000)
@@ -22,7 +23,8 @@ const qryInRes = () => {
     const opts = document.getElementById('songList').options;
     for (let i = 0; i < opts.length; i++) {
         if (opts[i].value === val) {
-            addSongToPlaylist(i)
+            const sng = songSearch[i]
+            addSongToPlaylist(sng)
             document.getElementById("songSearchInput").value=''
             return true;
         }
@@ -31,18 +33,6 @@ const qryInRes = () => {
     return false
 }
 
-const addSongOptions = () => {
-    $('#songList').html('')
-    for(let i in songSearch) {
-        const ele = songSearch[i]
-        $('#songList').append(`
-            <option value="${ele.song}" songId = ${ele.id}>${ele.primary_artists}</option>
-        `)
-    }
-}
-
-const addSongToPlaylist = (id) => {
-    const sng = songSearch[id]
-    lobby.playlist.push(sng)
-    renderPlaylist(sng)
+const addSongToPlaylist = (sng) => {
+    songPlayer.addSong(sng)
 }

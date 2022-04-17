@@ -25,6 +25,9 @@ const renderAddUserUI = (name, id) => {
         </div>
     `)
 }
+const renderRemoveUserUI = (id) => {
+    $('#'+id).remove()
+}
 const renderSentMsg = (msg) => {
     $('.chatArea').append(`
         <div class="chatBubble bubbleRight">
@@ -56,4 +59,13 @@ const renderPlaylist = (sng) => {
             </div>
         </div>
     `)
+}
+const renderSongOptions = (songSearch) => {
+    $('#songList').html('')
+    for(let i in songSearch) {
+        const ele = songSearch[i]
+        $('#songList').append(`
+            <option value="${ele.song}" songId = ${ele.id}>${ele.primary_artists}</option>
+        `)
+    }
 }
