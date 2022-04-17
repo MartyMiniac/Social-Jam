@@ -147,7 +147,6 @@
     color: white;
     font-family: 'PT Sans';
     width: 90%;
-    height: 4em;
     
     margin: 0.5em 0.25em;
     padding: 10px;
@@ -158,6 +157,10 @@
 }
 .PlaylistEntityInfo p {
     margin: 0em 0.5em;
+}
+.PlaylistEntity img {
+    height: 4em;
+    width: auto;
 }
 
 @media (max-aspect-ratio: 3/4) {

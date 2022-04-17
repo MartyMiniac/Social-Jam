@@ -1,5 +1,6 @@
 var socket = io()
 var roomID = null
+let isFirst = true
 
 //join room
 const SocketIOJoinRoom = (roomId) => {
@@ -16,11 +17,11 @@ socket.on('msg', data => {
     }
     if(data.type==='typing') {
         // console.log(data)
-        changeStatus(data.id)
+        renderChangeStatus(data.id)
     }
     if(data.type=='join') {
         console.log(data.data)
-        addUserUI(data.data, data.id)
+        renderAddUserUI(data.data, data.id)
         sendJoinAckEvent(data.id)
         lobby.users[data.id]=data.data
     }
@@ -34,8 +35,18 @@ socket.on('prvmsg', data => {
     console.log(data)
     if(data.type=='ack') {
         console.log(data.data)
-        addUserUI(data.data, data.id)
+        renderAddUserUI(data.data, data.id)
+        if(isFirst) {
+            isFirst=false
+            requestPlayerInfo(data.id)
+        }
         lobby.users[data.id]=data.data
+    }
+    if(data.type=='playerInit') {
+        sendPlayerInfo(data.id)
+    }
+    if(data.type=='playerInfo') {
+        player.setPlayerInfo(data.data)
     }
 })
 
@@ -66,6 +77,22 @@ const sendJoinAckEvent = (id) => {
     socket.emit('prvmsg', {
         type: 'ack',
         data: sessionStorage.playerName,
+        id: id
+    })
+}
+
+const requestPlayerInfo = (id) => {
+    socket.emit('prvmsg', {
+        type: 'playerInit',
+        id: id
+    })
+}
+
+const sendPlayerInfo = (id) => {
+    console.log('player info sent')
+    socket.emit('prvmsg', {
+        type: 'playerInfo',
+        data: player.getPlayerInfo(),
         id: id
     })
 }

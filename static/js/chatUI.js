@@ -4,7 +4,7 @@ $('#sndMsgBtn').click(() => {
 
 $('#sndMsgText').on("keypress", e => {
     sendTypingEvent()
-    changeStatus('userMe')
+    renderChangeStatus('userMe')
     if (e.keyCode == 13) {
         sndMsgUI()
         return false;
@@ -17,27 +17,12 @@ const sndMsgUI = () => {
         return
     }
     $('#sndMsgText').val('')
-    $('.chatArea').append(`
-    <div class="chatBubble bubbleRight">
-        ${msg}
-    </div>
-    `)
+    renderSentMsg(msg)
     sendMsg(msg)
     console.log(msg)
     $('.chatArea').scrollTop($('.chatArea').height())
 }
 const rcvMsgUI = (msg) => {
-    $('.chatArea').append(`
-    <div class="chatBubble">
-        ${msg}
-    </div>
-    `)
+    renderReceivedMsg(msg)    
     $('.chatArea').scrollTop($('.chatArea').height())
-}
-
-const changeStatus = (id) => {
-    $('#status'+id).html('typing')
-    setTimeout(() => {
-        $('#status'+id).html('chilling')
-    }, 1000)
 }

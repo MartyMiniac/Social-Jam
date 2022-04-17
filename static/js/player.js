@@ -41,10 +41,16 @@ class Player {
     }
     seek(percent) {
         let time = percent*(this.player.duration/100)
-        this.player.currentTime = time
+        this.player.currentTime = Math.floor(time)
     }
     getCurrentSeek() {
         return (this.player.currentTime/this.player.duration)*100
+    }
+    seekTime(time) {
+        this.player.currentTime = Math.floor(time)
+    }
+    getCurrentSeekTime() {
+        return this.player.currentTime
     }
     getPos() {
         return this.pos
@@ -70,6 +76,25 @@ class Player {
     getPlayingStatus() {
         return this.playing
     }
+    getPlayerInfo() {
+        return {
+            pos: this.pos,
+            seek: this.getCurrentSeekTime(),
+            autoplay: this.autoPlay,
+            loop: this.loop,
+            playlist: lobby.playlist
+        }
+    }
+    setPlayerInfo(data) {
+        lobby.playlist=data.playlist
+        this.pos=data.pos
+        this.autoPlay=data.autoplay
+        this.loop=data.loop
+        this.load()
+        this.seekTime(data.seek)
+        this.play()
+    }
+
 
     init() {
         this.player.onplay = () => {
@@ -86,7 +111,7 @@ class Player {
 const player = new Player()
 
 setInterval(() => {
-    $('#range').val(player.getCurrentSeek()*10)
+    $('#range').val(isNaN(player.getCurrentSeek())?0:player.getCurrentSeek()*10)
 }, 100)
 
 $('#player-playpause-btn').click(() => {
@@ -96,6 +121,13 @@ $('#player-playpause-btn').click(() => {
     else {
         player.play()
     }
+})
+
+$('#player-back-btn').click(() => {
+    player.previous()
+})
+$('#player-next-btn').click(() => {
+    player.next()
 })
 
 $("#range").on("input change", () => {

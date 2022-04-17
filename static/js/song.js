@@ -44,14 +44,5 @@ const addSongOptions = () => {
 const addSongToPlaylist = (id) => {
     const sng = songSearch[id]
     lobby.playlist.push(sng)
-    $('.rightPane').append(`
-    <div class="PlaylistEntity" id="${sng.id}">
-        <img src="${sng.image}" alt="">
-        <div class="PlaylistEntityInfo">
-            <p>${sng.song}</p>
-            <p>${sng.album}</p>
-            <p>${sng.primary_artists}</p>
-        </div>
-    </div>
-    `)
+    renderPlaylist(sng)
 }
